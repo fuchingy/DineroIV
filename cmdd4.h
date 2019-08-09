@@ -5,7 +5,7 @@
  * Copyright (C) 1997 NEC Research Institute, Inc. and Mark D. Hill.
  * All rights reserved.
  * Copyright (C) 1985, 1989 Mark D. Hill.  All rights reserved.
- * 
+ *
  * Permission to use, copy, modify, and distribute this software and
  * its associated documentation for non-commercial purposes is hereby
  * granted (for commercial purposes see below), provided that the above
@@ -25,12 +25,12 @@
  * to export control.  This software is experimental.  NECI and Mark D. Hill
  * make no representations regarding the suitability of this software for
  * any purpose and neither NECI nor Mark D. Hill will support the software.
- * 
+ *
  * Use of this software for commercial purposes is also possible, but only
  * if, in addition to the above requirements for non-commercial use, written
  * permission for such use is obtained by the commercial user from NECI or
  * Mark D. Hill prior to the fabrication and distribution of the software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED AS IS.  NECI AND MARK D. HILL DO NOT MAKE
  * ANY WARRANTEES EITHER EXPRESS OR IMPLIED WITH REGARD TO THE SOFTWARE.
  * NECI AND MARK D. HILL ALSO DISCLAIM ANY WARRANTY THAT THE SOFTWARE IS
@@ -51,12 +51,12 @@
 
 
 #if __GNUC__    /* assume gcc 2.5 or better */
-extern void die (const char *fmt, ...) __attribute__((noreturn));
-extern void shorthelp (const char *fmt, ...) __attribute__((noreturn));
+extern void die(const char* fmt, ...) __attribute__((noreturn));
+extern void shorthelp(const char* fmt, ...) __attribute__((noreturn));
 #else
-extern void die (const char *fmt, ...);
-extern void shorthelp (const char *fmt, ...);
+extern void die(const char* fmt, ...);
+extern void shorthelp(const char* fmt, ...);
 #endif
-extern int clog2 (unsigned int);
+extern int clog2(unsigned int);
 
-extern char *progname;	/* for error messages */
+extern char* progname;  /* for error messages */

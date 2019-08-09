@@ -6,6 +6,6 @@ specified for each cache.
 Provide a graphical front end, possibly based on python.
 
 Improve testing/testscript
-	specify input source, format, and parameters
-	allow platform-dependent "good" files for cases
-		that depend on random number sequences
+    specify input source, format, and parameters
+    allow platform-dependent "good" files for cases
+        that depend on random number sequences

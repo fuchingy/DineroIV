@@ -8,13 +8,13 @@ INTRODUCTION
 Dinero IV is a cache simulator for memory reference traces.
 It includes the following major changes over Dinero III:
 
-	- subroutine-callable interface in addition to trace-reading program
-	- simulation of multi-level caches
-	- simulation of dissimilar I and D caches
-	- better performance, especially for highly associative caches
-	- classification of compulsory, capacity, and conflict misses
-	- support for multiple input formats
-	- cleaned up and modernized code, improved portability
+    - subroutine-callable interface in addition to trace-reading program
+    - simulation of multi-level caches
+    - simulation of dissimilar I and D caches
+    - better performance, especially for highly associative caches
+    - classification of compulsory, capacity, and conflict misses
+    - support for multiple input formats
+    - cleaned up and modernized code, improved portability
 
 Some deep-seated limitations:
 - Dinero IV is not a timing simulator.
@@ -70,8 +70,8 @@ x86/Solaris, and Sparc/Solaris.
 
 To build everything:
 
-	./configure
-	make
+    ./configure
+    make
 
 Nothing is installed outside the main directory.
 To turn on a bit of additional debugging, configure with --with-debug.
@@ -82,9 +82,9 @@ TESTING
 
 To run some fixed tests, go to the testing subdirectory and run
 
-	make
-	PATH=$PATH:.. ./testscript
-	D4_SRC=.. PATH=$PATH:.. ./testscript -c
+    make
+    PATH=$PATH:.. ./testscript
+    D4_SRC=.. PATH=$PATH:.. ./testscript -c
 
 (for sh users; csh users probably use "set path=($path ..); set D4_SRC=..").
 
