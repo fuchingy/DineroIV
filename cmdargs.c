@@ -112,6 +112,7 @@ double skipcount;
 double flushcount;
 double maxcount;
 double stat_interval;
+int clear_counters_after_show;
 int informat = DEFVAL_informat;
 long on_trigger;
 long off_trigger;
@@ -280,6 +281,13 @@ struct arglist args[] = {
         "Show statistics after every U references",
         match_1arg, val_scale_uintd, NULL,
         summary_uintd, help_scale_uintd
+    },
+    {
+        "-clear-counters-after-show", 2, &clear_counters_after_show, NULL,
+        NULL,
+        "After showing statistics, clear counters but keep cache state",
+        match_0arg, val_0arg, NULL,
+        summary_0arg, help_0arg
     },
     {
         "-informat", 2, &informat, DEFSTR_informat,
