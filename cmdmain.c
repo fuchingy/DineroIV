@@ -1949,6 +1949,8 @@ int main(int argc, char** argv)
     flcount = flushcount;
     while (1) {
         r = next_trace_item();
+        if (print_hitmiss)
+            printf("\n");
         if (r.accesstype == D4TRACE_END) {
             goto done;
         }

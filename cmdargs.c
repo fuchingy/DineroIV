@@ -114,6 +114,7 @@ double maxcount;
 double stat_interval;
 int clear_counters_after_show;
 int informat = DEFVAL_informat;
+int print_hitmiss;
 long on_trigger;
 long off_trigger;
 int stat_idcombine;
@@ -295,6 +296,13 @@ struct arglist args[] = {
         "Input trace format",
         match_1arg, val_char, NULL,
         summary_char, help_informat
+    },
+    {
+        "-print-hitmiss", 2, &print_hitmiss, NULL,
+        NULL,
+        "Print the hit/miss per reference. (include cross-cacheline and recursive accesses)",
+        match_0arg, val_0arg, NULL,
+        summary_0arg, help_0arg
     },
     {
         "-on-trigger", 2, &on_trigger, NULL,

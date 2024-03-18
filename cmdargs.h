@@ -90,6 +90,7 @@ extern double flushcount;   /* for -flushcount */
 extern double maxcount;     /* for -maxcount */
 extern double stat_interval;    /* for -stat-interval */
 extern int clear_counters_after_show;   /* for -clear-counters-after-show */
+extern int print_hitmiss;   /* for -print-hitmiss */
 extern long on_trigger;     /* for -on-trigger */
 extern long off_trigger;    /* for -off-trigger */
 extern int stat_idcombine;  /* for -stat-idcombine */

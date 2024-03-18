@@ -81,6 +81,7 @@
 #include <string.h>
 #include <assert.h>
 #include "d4.h"
+#include "cmdargs.h"
 
 
 /* some systems don't provide a proper declaration for random() */
@@ -865,6 +866,12 @@ void d4ref(d4cache* c, d4memref mr)
             if (blockmiss) {
                 c->blockmiss[(int)m.accesstype]++;
             }
+        }
+        if (print_hitmiss) {
+            if (miss)
+                printf("M");
+            else
+                printf("H");
         }
         /*
          * Now make recursive calls for pending references
