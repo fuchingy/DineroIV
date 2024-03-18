@@ -84,6 +84,7 @@ extern int do1arg(const char*, const char*);
 extern void doargs(int, char**);
 extern void summarize_caches(d4cache*, d4cache*);
 extern void dostats(void);
+extern void clear_counters(void);
 extern void do1stats(d4cache*);
 extern d4memref next_trace_item(void);
 #if !D4CUSTOM
@@ -1137,6 +1138,31 @@ void dostats()
     }
 }
 
+void clear_counters()
+{
+    int lev;
+    int i, j;
+    for (lev = 0;  lev < maxlevel;  lev++) {
+        for (j = 0;  j < 3;  j++) {
+            if (levcache[j][lev] != NULL) {
+                levcache[j][lev]->multiblock = 0;
+                levcache[j][lev]->bytes_read = 0;
+                levcache[j][lev]->bytes_written = 0;
+                for (i = 0;  i < 2 * D4NUMACCESSTYPES;  i++) {
+                    levcache[j][lev]->fetch[i] = 0;
+                    levcache[j][lev]->miss[i] = 0;
+                    levcache[j][lev]->blockmiss[i] = 0;
+                    levcache[j][lev]->comp_miss[i] = 0;
+                    levcache[j][lev]->comp_blockmiss[i] = 0;
+                    levcache[j][lev]->cap_miss[i] = 0;
+                    levcache[j][lev]->cap_blockmiss[i] = 0;
+                    levcache[j][lev]->conf_miss[i] = 0;
+                    levcache[j][lev]->conf_blockmiss[i] = 0;
+                }
+            }
+        }
+    }
+}
 
 #define NONZERO(i) (((i)==0.0) ? 1.0 : (double)(i)) /* avoid divide-by-zero exception */
 /*
@@ -1943,6 +1969,8 @@ int main(int argc, char** argv)
         tmaxcount += 1;
         if (tintcount > 0 && (tintcount -= 1) <= 0) {
             dostats();
+            if (clear_counters_after_show)
+                clear_counters();
             tintcount = stat_interval;
         }
         if (flcount > 0 && (flcount -= 1) <= 0) {
